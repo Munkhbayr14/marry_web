@@ -1,4 +1,11 @@
-import coverImage from "../images/coverImage.jpg";
+import coverImage from "../images/3.jpg";
+import cover_1 from "../images/1.jpg";
+import cover_2 from "../images/2.jpg";
+import cover_4 from "../images/4.jpg";
+import cover_5 from "../images/5.jpg";
+import cover_6 from "../images/6.jpg";
+import cover_7 from "../images/7.jpg";
+
 export default function Home() {
     return (
         <div>
@@ -8,7 +15,7 @@ export default function Home() {
                     <h1 className="text-gray-700  font-Sans">Б.Ануужин</h1>
                 </div>
                 <div className="w-full">
-                    <img src={coverImage} alt="" />
+                    <img className="w-full" src={coverImage} alt="" />
                 </div>
                 <div className="md:text-2xl lg:text-3xl flex flex-col items-center justify-center">
                     <p className="pt-12 font-Sans text-pink-100 italic">Wedding invitation</p>
@@ -29,7 +36,59 @@ export default function Home() {
                 </div>
          
                 <hr />
-                <h1 className="flex justify-center pt-10 text-[22px]">Зураг</h1>
+                <div className="flex flex-col items-center justify-center">
+               <p >Бурханы хайр, нигүүсэл, нэг итгэл дотор уулзсан бид хойшдоо нэгэн гэр бүлийг бий болгож өнгөрсөн хугацаанд хайрлаж, бүхий л зүйлээ зориулж ирсэн эцэг эх, ах дүү, хамаатан садан, хайрт ахан дүүс, Бурханыхаа өмнө хайрын тангараг өргөх гэж байна</p>
+                    
+                </div>
+
+                <div className="grid grid-cols-3 gap-1 mt-10 mb-10">
+    
+                </div>
+            </div>
+
+                   <div className="bg-[#ffffff] h-auto w-screen p-5">
+                <div className="flex justify-between ">
+                    <p className="italic text-[14px]  text-[#7f838c] font-serif">Wedding invitation</p>
+                    <p className="text-[#7f838c] text-[14px] italic font-serif">11/11</p>  
+                </div>
+         
+                <hr />
+                <div className=" mt-8 flex flex-col items-center justify-center">
+                    <h1>Холбоо барих</h1>
+                    <table className="w-full md:w-[1000px]  mt-8 ">
+                          <tbody className="">
+    <tr className="border border-solid border-l-0 border-r-0 ">
+        <td className=" text-md px-6 py-3 ">М.Уламбаяр </td>
+        <td className=" text-md px-6 py-3 ">86641614 </td>
+    </tr>
+    <tr className="border border-solid border-l-0 border-r-0 ">
+      <td className="text-md px-6 py-3  ">Аав Мөнхбаатар</td>
+      <td className="text-md px-6 py-3  ">80209036</td>
+    </tr>
+    <tr className="border border-solid border-l-0 border-r-0 ">
+      <td className="text-md px-6 py-3 "> Ээж Ариунтуяа </td>
+      <td className="text-md px-6 py-3  ">80209085</td>
+    </tr>
+  </tbody>
+                    </table>     
+
+                          <table className="w-full md:w-[1000px]  mt-8 ">
+                          <tbody className="">
+    <tr className="border border-solid border-l-0 border-r-0 ">
+        <td className=" text-md px-6 py-3 ">Б.Ануужин </td>
+        <td className=" text-md px-6 py-3 ">86040900 </td>
+    </tr>
+    <tr className="border border-solid border-l-0 border-r-0 ">
+      <td className="text-md px-6 py-3  ">Аав Баяржаргал</td>
+      <td className="text-md px-6 py-3  ">88719843</td>
+    </tr>
+    <tr className="border border-solid border-l-0 border-r-0 ">
+      <td className="text-md px-6 py-3 ">  Ээж Найдалмаа  </td>
+      <td className="text-md px-6 py-3  ">88701169</td>
+    </tr>
+  </tbody>
+                  </table>   
+                </div>
                 <div className="grid grid-cols-3 gap-1 mt-10 mb-10">
     
                 </div>
@@ -43,19 +102,15 @@ export default function Home() {
          
                 <hr />
                 <h1 className="flex justify-center pt-10 text-[22px]">Зураг</h1>
-                <div className="grid grid-cols-3 gap-1 mt-10 mb-10">
-                    <img src={coverImage} alt="" />
-                    <img src={coverImage} alt="" />
-                    <img src={coverImage} alt="" />
-                    <img src={coverImage} alt="" />
-                    <img src={coverImage} alt="" />
-                    <img src={coverImage} alt="" />
-                    <img src={coverImage} alt="" />
-                    <img src={coverImage} alt="" />
-                    <img src={coverImage} alt="" />
-                    <img src={coverImage} alt="" />
-                    <img src={coverImage} alt="" />
-                    <img src={coverImage} alt="" />
+                <div className="w-full max-w-7xl p-1 pb-10 mx-auto pt-10 gap-1 columns-2">
+                    <img src={cover_1} alt="" />
+                   
+                    <img src={cover_5} alt="" />
+                     <img src={cover_7} alt="" />
+                    <img src={cover_6} alt="" />
+                    <img src={cover_4} alt="" />
+                      <img src={cover_2} alt="" />
+       
                 </div>
             </div>
                <div className="bg-[#ffffff] h-auto w-screen p-5">
