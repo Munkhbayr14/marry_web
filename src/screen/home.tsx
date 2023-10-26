@@ -6,6 +6,7 @@ import cover_5 from "../images/5.jpg";
 import cover_6 from "../images/6.jpg";
 import cover_7 from "../images/7.jpg";
 import cover_8 from "../images/gift.jpg";
+import cover from "../images/cover.jpg"
 
 export default function Home() {
     return (
@@ -16,7 +17,7 @@ export default function Home() {
                     <h1 className="text-gray-700  font-serif">Б.Ануужин</h1>
                 </div>
                 <div className="w-full">
-                    <img className="w-full" src={cover_1} alt="" />
+                    <img className="w-full" src={cover} alt="" />
                 </div>
                 <div className="md:text-2xl lg:text-3xl flex flex-col items-center justify-center">
                     <p className="pt-12 font-Sans text-pink-100 italic">Wedding invitation</p>
@@ -127,13 +128,17 @@ export default function Home() {
                 <hr />
                 <h1 className="font-serif flex justify-center pt-10 text-[30px] ">Зураг</h1>
                 <div className="w-full max-w-7xl p-1 pb-10 mx-auto pt-10 gap-1 columns-2">
-                    <img src={cover_1} alt="" />
+              
                    
                     <img src={cover_5} alt="" />
-                     <img src={cover_7} alt="" />
+                    <img src={cover_7} alt="" />
+                     <img src={cover} alt="" />
                     <img src={cover_6} alt="" />
+                         
                     <img src={cover_4} alt="" />
-                      <img src={cover_2} alt="" />
+                    <img src={cover_2} alt="" />
+
+                    
        
                 </div>
             </div>
