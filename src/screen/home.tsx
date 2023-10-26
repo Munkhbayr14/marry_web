@@ -5,6 +5,7 @@ import cover_4 from "../images/4.jpg";
 import cover_5 from "../images/5.jpg";
 import cover_6 from "../images/6.jpg";
 import cover_7 from "../images/7.jpg";
+import cover_8 from "../images/gift.jpg";
 
 export default function Home() {
     return (
@@ -20,6 +21,7 @@ export default function Home() {
                 <div className="md:text-2xl lg:text-3xl flex flex-col items-center justify-center">
                     <p className="pt-12 font-Sans text-pink-100 italic">Wedding invitation</p>
                     <div className="flex font-serif flex-col items-center justify-center p-12 pb-14">
+                        ♥
                     <p className="font-serif">2023оны 11сарын 11өдөр</p>
                    
                     <p >Улаанбаатар зүүн чуулган</p>
@@ -41,7 +43,7 @@ export default function Home() {
 
                     {/* {/* <p className=" text-[14px] text-justify px-16 pb-10">Бурханы хайр, нигүүсэл, нэг итгэл дотор уулзсан бид хойшдоо нэгэн гэр бүлийг бий болгож өнгөрсөн хугацаанд хайрлаж, бүхий л зүйлээ зориулж ирсэн эцэг эх, ах дүү, хамаатан садан, хайрт ахан дүүс, Бурханыхаа өмнө хайрын тангараг өргөх гэж байна
 </p> */}
-                    *
+                    ♥
           
                     <p className="text-[14px]">Бурханы хайр,нигүүсэл,</p>
                     <p className="text-[14px]">нэг итгэл дотор</p>
@@ -52,7 +54,7 @@ export default function Home() {
                     <p className="text-[14px]">  эцэг эх, ах дүү, хамаатан садан,</p>
                     <p className="text-[14px]">хайрт ахан дүүс, Бурханыхаа өмнө</p>
                     <p className="text-[14px] pb-10">  хайрын тангараг өргөх гэж байна.</p>
-                    *
+                    ♥
                     <p className="text-[14px] px-16">Шинэ замаар хойшдын амьдралаа      </p>
 
                     <p className="text-[14px] "> хоёул нийлэн бүтээх гэж буй</p> 
@@ -135,7 +137,7 @@ export default function Home() {
        
                 </div>
             </div>
-               <div className="bg-[#ffffff]  h-auto w-screen">
+               <div className="bg-[#ffffff] pt-3  h-auto w-screen">
                 <div className="flex justify-between ">
                     <p className="italic text-[14px]  text-[#7f838c] font-serif">Wedding invitation</p>
                     <p className="text-[#7f838c] text-[14px] italic font-serif">11/11</p>  
@@ -152,7 +154,24 @@ export default function Home() {
 
             </div>
 
-               <div className="bg-[#fff7f0] h-60 w-screen flex flex-col justify-center items-center">
+
+                  <div className="bg-[#ffffff] p-3  h-auto w-screen">
+                <div className="flex justify-between  ">
+                    <p className="italic text-[14px]  text-[#7f838c] font-serif">Wedding invitation</p>
+                    <p className="text-[#7f838c] text-[14px] italic font-serif">11/11</p>  
+                   
+                </div>
+                <hr />
+                   <div className="w-full flex flex-col">
+                        <img src={cover_8} alt="" />
+                    </div>
+              
+              
+   
+
+            </div>
+
+               <div className="bg-[#ffff] h-60 w-screen flex flex-col justify-center items-center">
          
                     <h1 className="italic">Thank you!</h1>
                     <h1>♥</h1>
