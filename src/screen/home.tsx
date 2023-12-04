@@ -19,8 +19,8 @@ export default function Home() {
         <div>
             <div className="border-2 border-pink-100 my-6 mx-5">
                 <div className="md:text-6xl text-4xl h-64 md:h-96 mx-auto flex flex-col items-center justify-center ">
-                    <h1 className="text-gray-700 font-serif">М.Хэрлэн </h1>
-                    <h1 className="text-gray-700  font-serif">Б.Ануужин</h1>
+                    <h1 className="text-gray-700 font-serif">С.Хэрлэн </h1>
+                    <h1 className="text-gray-700  font-serif">Э.Батцэцэг</h1>
                 </div>
                 <div className="w-full">
                     <img className="w-full" src={cover} alt="" />
@@ -29,7 +29,7 @@ export default function Home() {
                     <p className="pt-12 font-Sans text-pink-100 italic">Wedding invitation</p>
                     <div className="flex font-serif flex-col items-center justify-center p-12 pb-14">
                         ♥
-                    <p className="font-serif">2023оны 11сарын 11өдөр</p>
+                    <p className="font-serif">2023оны 12сарын 16өдөр</p>
                    
                     <p >Улаанбаатар зүүн чуулган</p>
                      <p> 11:00 цагаас</p>
@@ -89,16 +89,16 @@ export default function Home() {
                     <table className="w-full md:w-[1000px]  mt-8 ">
                           <tbody className="">
     <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-        <td className=" text-md px-6 py-3 ">М.Уламбаяр </td>
-        <td className="flex justify-end text-md px-6 py-3 ">86641614 </td>
+        <td className=" text-md px-6 py-3 ">С.Хэрлэн </td>
+        <td className="flex justify-end text-md px-6 py-3 ">90641224 </td>
     </tr>
     <tr className=" font-serif border border-solid border-l-0 border-r-0 ">
-      <td className="text-md px-6 py-3  ">Аав Мөнхбаатар</td>
-      <td className="flex justify-end text-md px-6 py-3  ">80209036</td>
+      <td className="text-md px-6 py-3  ">Аав Сод-Оргил</td>
+      <td className="flex justify-end text-md px-6 py-3  ">95582558</td>
     </tr>
     <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-      <td className="text-md px-6 py-3 "> Ээж Ариунтуяа </td>
-      <td className="flex justify-end text-md px-6 py-3  ">80209085</td>
+      <td className="text-md px-6 py-3 "> Ээж Халзанхүүхэн </td>
+      <td className="flex justify-end text-md px-6 py-3  ">86652282</td>
     </tr>
   </tbody>
                     </table>     
@@ -106,16 +106,16 @@ export default function Home() {
                           <table className="w-full md:w-[1000px]  mt-8 ">
                           <tbody className="">
     <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-        <td className=" text-md px-6 py-3 ">Б.Ануужин </td>
-        <td className=" flex justify-end text-md px-6 py-3 ">86040900 </td>
+        <td className=" text-md px-6 py-3 "> Э.Батцэцэг </td>
+        <td className=" flex justify-end text-md px-6 py-3 ">92050529 </td>
     </tr>
     <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-      <td className="text-md px-6 py-3  ">Аав Баяржаргал</td>
-      <td className="flex justify-end text-md px-6 py-3  ">88719843</td>
+      <td className="text-md px-6 py-3  ">Аав Эрдэнэбилэг</td>
+      <td className="flex justify-end text-md px-6 py-3  ">99450023</td>
     </tr>
     <tr className="border border-solid border-l-0 border-r-0 ">
-      <td className="font-serif text-md px-6 py-3 ">  Ээж Найдалмаа  </td>
-      <td className="font-serif flex justify-end text-md px-6 py-3  ">88701169</td>
+      <td className="font-serif text-md px-6 py-3 ">  Ээж Цэнджав </td>
+      <td className="font-serif flex justify-end text-md px-6 py-3  ">85276886</td>
     </tr>
   </tbody>
                   </table>   
@@ -137,12 +137,15 @@ export default function Home() {
               
                    
                     <img src={cover_5} alt="" />
+                                   
+    
                     <img src={cover_1} alt="" />
+                        
                     <img src={cover} alt="" />
+                                <img src={cover_4} alt="" />
                                <img src={cover_9} alt="" />
                     <img src={cover_8} alt="" />
-                         
-                    <img src={cover_4} alt="" />
+          
          
 
                     
