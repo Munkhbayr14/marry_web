@@ -1,19 +1,25 @@
-import coverImage from "../images/3.jpg";
-import cover_1 from "../images/1.jpg";
-import cover_2 from "../images/2.jpg";
-import cover_4 from "../images/4.jpg";
-import cover_5 from "../images/5.jpg";
-import cover_6 from "../images/6.jpg";
-import cover_7 from "../images/7.jpg";
-import cover_8 from "../images/gift.jpg";
-import cover from "../images/cover.jpg"
+// import coverImage from "../images/3.jpg";
+// import cover_1 from "../images/1.jpg";
+// import cover_2 from "../images/2.jpg";
+// import cover_4 from "../images/4.jpg";
+// import cover_5 from "../images/5.jpg";
+// import cover_6 from "../images/6.jpg";
+// import cover_7 from "../images/7.jpg";
+// import cover_8 from "../images/gift.jpg";
+// import cover from "../images/cover.jpg"
+import cover from "../images_kherlen/3.jpg"
+import cover_1 from "../images_kherlen/1.jpg"
+import cover_4 from "../images_kherlen/4.jpg"
+import cover_5 from "../images_kherlen/5.jpg"
+import cover_8 from "../images_kherlen/8.jpg"
+import cover_9 from "../images_kherlen/9.jpg"
 
 export default function Home() {
     return (
         <div>
             <div className="border-2 border-pink-100 my-6 mx-5">
                 <div className="md:text-6xl text-4xl h-64 md:h-96 mx-auto flex flex-col items-center justify-center ">
-                    <h1 className="text-gray-700 font-serif">М.Уламбаяр </h1>
+                    <h1 className="text-gray-700 font-serif">М.Хэрлэн </h1>
                     <h1 className="text-gray-700  font-serif">Б.Ануужин</h1>
                 </div>
                 <div className="w-full">
@@ -131,12 +137,13 @@ export default function Home() {
               
                    
                     <img src={cover_5} alt="" />
-                    <img src={cover_7} alt="" />
-                     <img src={cover} alt="" />
-                    <img src={cover_6} alt="" />
+                    <img src={cover_1} alt="" />
+                    <img src={cover} alt="" />
+                               <img src={cover_9} alt="" />
+                    <img src={cover_8} alt="" />
                          
                     <img src={cover_4} alt="" />
-                    <img src={cover_2} alt="" />
+         
 
                     
        
