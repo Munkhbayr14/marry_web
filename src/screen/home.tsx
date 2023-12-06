@@ -13,6 +13,7 @@ import cover_4 from "../images_kherlen/4.jpg"
 import cover_5 from "../images_kherlen/5.jpg"
 import cover_8 from "../images_kherlen/8.jpg"
 import cover_9 from "../images_kherlen/9.jpg"
+import dans from "../images_kherlen/dans.jpg"
 
 export default function Home() {
     return (
@@ -53,20 +54,19 @@ export default function Home() {
                     ♥
           
                     <p className="text-[14px]">Бурханы хайр,нигүүсэл,</p>
-                    <p className="text-[14px]">нэг итгэл дотор</p>
-                    <p className="text-[14px]">уулзсан  бид хойшдоо</p>
-                    <p className="text-[14px]">нэгэн гэр бүлийг бий болгож</p>
-                    <p className="text-[14px]">өнгөрсөн хугацаанд хайрлаж,</p>
-                    <p className="text-[14px]">бүхий л зүйлээ зориулж ирсэн</p>
-                    <p className="text-[14px]">  эцэг эх, ах дүү, хамаатан садан,</p>
-                    <p className="text-[14px]">хайрт ахан дүүс, Бурханыхаа өмнө</p>
-                    <p className="text-[14px] pb-10">  хайрын тангараг өргөх гэж байна.</p>
-                    ♥
-                    <p className="text-[14px] px-16">Шинэ замаар хойшдын амьдралаа      </p>
+                    <p className="text-[14px]">нэг итгэл дотроо</p>
+                    <p className="text-[14px]">учирсан  бид хойшдоо</p>
+                    <p className="text-[14px]">нэгэн шинэ гэр бүлийг бий болгон</p>
+                    <p className="text-[14px]">айл гэр болон гал</p>
+                    <p className="text-[14px]">голомтоо бадраах гэж байна. </p>
+                    <p className="text-[14px]">Ганцаараа байснаас хоёул байх нь илүү </p>
+                    <p className="text-[14px]">дээр билээ. Тэгвэл тэдний зүтгэл сайнаар</p>
+                    <p className="text-[14px] ">  хайрын тангараг өргөх гэж байна.</p>
+                       <p className="text-[14px] pb-10">Номлогчийн үгс 4:9     </p>
+                 
 
-                    <p className="text-[14px] "> хоёул нийлэн бүтээх гэж буй</p> 
-                    <p className="text-[14px] "> бүх зүйлд маань сайхан сэтгэлээр</p> 
-                     <p className="text-[14px] ">  баяр хүргэж өгөөсэй гэж хүсэж байна.</p> 
+                    <p className="text-[14px] ">Хүндэтгэсэн: С. Хэрлэн & Э. Батцэцэг</p> 
+           
 
                     
                     
@@ -178,7 +178,7 @@ export default function Home() {
                 </div>
                 <hr />
                    <div className="w-full flex flex-col">
-                        <img src={cover_8} alt="" />
+                        <img src={dans} alt="" />
                     </div>
               
               
