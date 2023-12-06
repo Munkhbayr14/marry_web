@@ -42,7 +42,7 @@ export default function Home() {
              <div className="bg-[#fcf5eb94] h-auto w-screen p-5">
                 <div className="flex justify-between ">
                     <p className="italic text-[14px]  text-[#7f838c] font-serif">Wedding invitation</p>
-                    <p className="text-[#7f838c] text-[14px] italic font-serif">11/11</p>  
+                    <p className="text-[#7f838c] text-[14px] italic font-serif">12/16</p>  
                 </div>
          
                 <hr />
@@ -80,7 +80,7 @@ export default function Home() {
                    <div className="bg-[#ffffff] h-auto w-screen p-5">
                 <div className="flex justify-between ">
                     <p className="italic text-[14px]  text-[#7f838c] font-serif">Wedding invitation</p>
-                    <p className="text-[#7f838c] text-[14px] italic font-serif">11/11</p>  
+                    <p className="text-[#7f838c] text-[14px] italic font-serif">12/16</p>  
                 </div>
          
                 <hr />
@@ -128,7 +128,7 @@ export default function Home() {
                <div className="bg-[#fcf5eb94] h-auto w-screen p-5">
                 <div className="flex justify-between ">
                     <p className="italic text-[14px]  text-[#7f838c] font-serif">Wedding invitation</p>
-                    <p className="text-[#7f838c] text-[14px] italic font-serif">11/11</p>  
+                    <p className="text-[#7f838c] text-[14px] italic font-serif">12/16</p>  
                 </div>
          
                 <hr />
@@ -155,7 +155,7 @@ export default function Home() {
                <div className="bg-[#ffffff] pt-3  h-auto w-screen">
                 <div className="flex justify-between ">
                     <p className="italic text-[14px]  text-[#7f838c] font-serif">Wedding invitation</p>
-                    <p className="text-[#7f838c] text-[14px] italic font-serif">11/11</p>  
+                    <p className="text-[#7f838c] text-[14px] italic font-serif">12/16</p>  
                 </div>
                 <hr />
                 <h1 className="flex font-serif justify-center pt-10 text-[25px]">Байршил</h1>
@@ -173,7 +173,7 @@ export default function Home() {
                   <div className="bg-[#ffffff] p-3  h-auto w-screen">
                 <div className="flex justify-between  ">
                     <p className="italic text-[14px]  text-[#7f838c] font-serif">Wedding invitation</p>
-                    <p className="text-[#7f838c] text-[14px] italic font-serif">11/11</p>  
+                    <p className="text-[#7f838c] text-[14px] italic font-serif">12/16</p>  
                    
                 </div>
                 <hr />
