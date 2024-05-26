@@ -1,15 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import './App.css';
-import Home from './screen/home';
+import "./App.css";
+import Home from "./screen/home";
 // import ImageScreen from './screen/imageScreen';
 
 function App() {
-    return (
-      <>
+  return (
+    <>
       <Home />
+
       {/* <ImageScreen /> */}
-      </>
+    </>
   );
 }
 

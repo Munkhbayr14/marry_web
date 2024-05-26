@@ -8,7 +8,7 @@ content: [
       fontFamily: {
         'Sans': ['Fira Code', 'monospace', 'Open Sans', 'sans-serif'],
         'font-1': ['Fira Code', 'monospace', 'Open Sans', 'sans-serif', 'Playpen Sans', 'cursive',],
-        'font-2': ['Fira Code',' monospace',
+        'font-2': ['Fira Code',' monospace, Caveat',
  'M PLUS Rounded 1c', 'sans-serif',
  'Open Sans', 'sans-serif',
 'Playpen Sans', 'cursive']

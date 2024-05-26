@@ -1,45 +1,24 @@
-// import coverImage from "../images/3.jpg";
-// import cover_1 from "../images/1.jpg";
-// import cover_2 from "../images/2.jpg";
-// import cover_4 from "../images/4.jpg";
-// import cover_5 from "../images/5.jpg";
-// import cover_6 from "../images/6.jpg";
-// import cover_7 from "../images/7.jpg";
-// import cover_8 from "../images/gift.jpg";
-// import cover from "../images/cover.jpg"
-import cover from "../images_kherlen/3.jpg";
-import cover_1 from "../images_kherlen/1.jpg";
-import cover_4 from "../images_kherlen/4.jpg";
-import cover_5 from "../images_kherlen/5.jpg";
-import cover_8 from "../images_kherlen/8.jpg";
-import cover_9 from "../images_kherlen/9.jpg";
-import dans from "../images_kherlen/dans.jpg";
+import cover from "../manlaiImage/cover-2.jpg";
+import cover_1 from "../manlaiImage/img-1.jpg";
+import cover_4 from "../manlaiImage/img-2.jpg";
+import cover_5 from "../manlaiImage/img-3.jpg";
+import cover_8 from "../manlaiImage/img-4.jpg";
+import cover_9 from "../manlaiImage/img-5.jpg";
+import cover_10 from "../manlaiImage/img-7.png";
+import dans from "../manlaiImage/giftLast.png";
+import { IoLogoInstagram } from "react-icons/io5";
+
 import { SetStateAction, useEffect, useState } from "react";
-
-import { error } from "console";
-
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-
-const images = [
-  {
-    img1: cover,
-  },
-  {
-    img1: cover_1,
-  },
-  {
-    img1: cover_4,
-  },
-  {
-    img1: cover_5,
-  },
-  {
-    img1: cover_8,
-  },
-  {
-    img1: cover_9,
-  },
-];
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+} from "@nextui-org/react";
+import React from "react";
 
 export default function Home() {
   const [slides, setData] = useState<any[]>([]);
@@ -47,26 +26,41 @@ export default function Home() {
   const [error, setError] = useState<any>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [size, setSize] = React.useState("5xl");
+  const sizes = ["5xl"];
+
+  const handleOpen = (size: any) => {
+    setSize(size);
+    onOpen();
+  };
 
   return (
     <div>
       <div>
-        <div className="border-2 border-pink-100 my-6 mx-5">
+        <div className="border-2my-6 mx-5">
+          <div className="flex justify-center items-center">
+            <p className="italic text-[20px] mt-10  text-[#7f838c] font-serif">
+              Хуримын урилга
+            </p>
+          </div>
+
           <div className="md:text-6xl text-4xl h-64 md:h-96 mx-auto flex flex-col items-center justify-center ">
-            <h1 className="text-gray-700 font-serif">С.Хэрлэн </h1>
-            <h1 className="text-gray-700  font-serif">Э.Батцэцэг</h1>
+            <h1 className="text-gray-600 italic font-serif ">Мөнхманлай </h1>{" "}
+            <p className="text-gray-600 italic font-serif">&</p>
+            <h1 className="text-gray-600 italic  font-serif">Ариунтэс</h1>
           </div>
           <div className="w-full">
             <img className="w-full" src={cover} alt="" />
           </div>
           <div className="md:text-2xl lg:text-3xl flex flex-col items-center justify-center">
-            <p className="pt-12 font-Sans text-pink-100 italic">
+            {/* <p className="pt-12 font-Sans text-pink-100 italic">
               Хуримын урилга
-            </p>
+            </p> */}
             <div className="flex font-serif flex-col items-center justify-center p-12 pb-14">
-              ♥<p className="font-serif">2023оны 12сарын 16өдөр</p>
+              ♥<p className="font-serif">2024 оны 6 сарын 15-ны өдөр</p>
               <p>Улаанбаатар зүүн чуулган</p>
-              <p> 11:00 цагаас</p>
+              <p> 10:00 цагт</p>
             </div>
           </div>
         </div>
@@ -76,31 +70,25 @@ export default function Home() {
             <p className="italic text-[14px]  text-[#7f838c] font-serif">
               Хуримын урилга
             </p>
-            <p className="text-[#7f838c] text-[14px] italic font-serif">
-              06/15
-            </p>
+            <p className="text-[#7f838c] text-[14px] italic font-serif">M&A</p>
           </div>
 
           <hr />
-          <div className="flex font-serif flex-col items-center justify-center ">
-            <h1 className="text-[25px] p-8">Таныг урьж байна</h1>
-            {/* {/* <p className=" text-[14px] text-justify px-16 pb-10">Бурханы хайр, нигүүсэл, нэг итгэл дотор уулзсан бид хойшдоо нэгэн гэр бүлийг бий болгож өнгөрсөн хугацаанд хайрлаж, бүхий л зүйлээ зориулж ирсэн эцэг эх, ах дүү, хамаатан садан, хайрт ахан дүүс, Бурханыхаа өмнө хайрын тангараг өргөх гэж байна
-</p> */}
-            ♥<p className="text-[14px]">Бурханы хайр,нигүүсэл,</p>
-            <p className="text-[14px]">нэг итгэл дотроо</p>
-            <p className="text-[14px]">учирсан бид хойшдоо</p>
-            <p className="text-[14px]">нэгэн шинэ гэр бүлийг бий болгон</p>
-            <p className="text-[14px]">айл гэр болон гал</p>
-            <p className="text-[14px]">голомтоо бадраах гэж байна. </p>
-            <p className="text-[14px]">
-              Ганцаараа байснаас хоёул байх нь илүү{" "}
+          <div className="flex font-serif flex-col items-center justify-center mt-16">
+            <div className="my-5">
+              <p className="text-[14px] ">Таныг бидний хуримын ёслолд </p>{" "}
+              <p className="text-[14px]"> хүрэлцэн ирэхийг урьж байна </p>
+            </div>
+            ♥
+            <p className="text-[14px] mt-5">
+              Ганцаараа байснаас хоёул байх нь{" "}
             </p>
-            <p className="text-[14px]">
-              дээр билээ. Тэгвэл тэдний зүтгэл сайнаар
-            </p>
-            <p className="text-[14px] "> хайрын тангараг өргөх гэж байна.</p>
+            <p className="text-[14px]">илүү дээр билээ. Тэгвэл тэдний зүтгэл</p>
+            <p className="text-[14px] "> сайнаар хариулагдах болно.</p>
             <p className="text-[14px] pb-10">Номлогчийн үгс 4:9 </p>
-            <p className="text-[14px] ">Хүндэтгэсэн: С. Хэрлэн & Э. Батцэцэг</p>
+            {/* <p className="text-[14px] ">
+              Хүндэтгэсэн: М.Мөнхманлай & Б.Ариунтэс
+            </p> */}
           </div>
 
           <div className="grid grid-cols-3 gap-1 mt-10 mb-10"></div>
@@ -111,9 +99,7 @@ export default function Home() {
             <p className="italic text-[14px]  text-[#7f838c] font-serif">
               Хуримын урилга
             </p>
-            <p className="text-[#7f838c] text-[14px] italic font-serif">
-              06/15
-            </p>
+            <p className="text-[#7f838c] text-[14px] italic font-serif">M&A</p>
           </div>
 
           <hr />
@@ -122,21 +108,21 @@ export default function Home() {
             <table className="w-full md:w-[1000px]  mt-8 ">
               <tbody className="">
                 <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-                  <td className=" text-md px-6 py-3 ">С.Хэрлэн </td>
+                  <td className=" text-md px-6 py-3 ">Мөнхманлай </td>
                   <td className="flex justify-end text-md px-6 py-3 ">
-                    90641224{" "}
+                    88567012{" "}
                   </td>
                 </tr>
                 <tr className=" font-serif border border-solid border-l-0 border-r-0 ">
-                  <td className="text-md px-6 py-3  ">Аав Сод-Оргил</td>
+                  <td className="text-md px-6 py-3  ">Аав Мөнхсайхан</td>
                   <td className="flex justify-end text-md px-6 py-3  ">
-                    95582558
+                    88929966
                   </td>
                 </tr>
                 <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-                  <td className="text-md px-6 py-3 "> Ээж Халзанхүүхэн </td>
+                  <td className="text-md px-6 py-3 "> Ээж Дэлгэрчимэг </td>
                   <td className="flex justify-end text-md px-6 py-3  ">
-                    86652282
+                    99022683
                   </td>
                 </tr>
               </tbody>
@@ -145,24 +131,22 @@ export default function Home() {
             <table className="w-full md:w-[1000px]  mt-8 ">
               <tbody className="">
                 <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-                  <td className=" text-md px-6 py-3 "> Э.Батцэцэг </td>
+                  <td className=" text-md px-6 py-3 "> Ариунтэс </td>
                   <td className=" flex justify-end text-md px-6 py-3 ">
-                    92050529{" "}
+                    88443927{" "}
                   </td>
                 </tr>
                 <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-                  <td className="text-md px-6 py-3  ">Аав Эрдэнэбилэг</td>
+                  <td className="text-md px-6 py-3  ">Аав Баярболд</td>
                   <td className="flex justify-end text-md px-6 py-3  ">
-                    99450023
+                    {" "}
+                    99358265
                   </td>
                 </tr>
                 <tr className="border border-solid border-l-0 border-r-0 ">
-                  <td className="font-serif text-md px-6 py-3 ">
-                    {" "}
-                    Ээж Цэнджав{" "}
-                  </td>
+                  <td className="font-serif text-md px-6 py-3 "> Ээж Орхон </td>
                   <td className="font-serif flex justify-end text-md px-6 py-3  ">
-                    85276886
+                    99759934
                   </td>
                 </tr>
               </tbody>
@@ -176,24 +160,33 @@ export default function Home() {
             <p className="italic text-[14px]  text-[#7f838c] font-serif">
               Хуримын урилга
             </p>
-            <p className="text-[#7f838c] text-[14px] italic font-serif">
-              06/15
-            </p>
+            <p className="text-[#7f838c] text-[14px] italic font-serif">M&A</p>
           </div>
 
           <hr />
           <h1 className="font-serif flex justify-center pt-10 text-[30px] ">
-            Зураг
+            ♥ Зураг ♥
           </h1>
-          <div className="w-full max-w-7xl p-1 pb-10 mx-auto pt-10 gap-1 columns-2">
-            <img src={cover_5} alt="" />
+          <div className="w-full max-w-7xl p-1 pb-10 mx-auto pt-10 gap-1 space-y-1 columns-2">
+            <img className="rounded-lg" src={cover_1} alt="" />
 
-            <img src={cover_1} alt="" />
+            <img className="rounded-lg" src={cover_4} alt="" />
+            <img className="rounded-lg" src={cover_10} alt="" />
+            <img className="rounded-lg" src={cover_5} alt="" />
+            <img className="rounded-lg" src={cover_9} alt="" />
+            <img className="rounded-lg" src={cover_8} alt="" />
+          </div>
+          <div className="flex justify-center items-center">
+            <a
+              href="https://www.instagram.com/pluto_munkhtes/?igsh=MXJkbnFjbnJtNjU4cg%3D%3D&utm_source=qr"
+              className=" rounded-2xl  bg-[#e7b596] flex justify-center items-center  md:text-[24px]  md:p-3 p-1 pl-7 pr-7 text-white"
+            >
+              <p>
+                <IoLogoInstagram className="font-bold text-[26px] mr-1" />
+              </p>
 
-            <img src={cover} alt="" />
-            <img src={cover_4} alt="" />
-            <img src={cover_9} alt="" />
-            <img src={cover_8} alt="" />
+              <p className="font-serif"> Дэлгэрэнгүй</p>
+            </a>
           </div>
         </div>
         <div className="bg-[#ffffff] pt-3  h-auto w-screen">
@@ -201,9 +194,7 @@ export default function Home() {
             <p className="italic text-[14px]  text-[#7f838c] font-serif">
               Хуримын урилга
             </p>
-            <p className="text-[#7f838c] text-[14px] italic font-serif">
-              06/15
-            </p>
+            <p className="text-[#7f838c] text-[14px] italic font-serif">M&A</p>
           </div>
           <hr />
           <h1 className="flex font-serif justify-center pt-10 text-[25px]">
@@ -236,7 +227,7 @@ export default function Home() {
               Хуримын урилга
             </p>
             <p className="text-[#7f838c] mx-3 text-[14px] italic font-serif">
-              06/15
+              M&A
             </p>
           </div>
           <hr />
@@ -247,7 +238,7 @@ export default function Home() {
 
         <div className="bg-[#ffff] h-60 w-screen flex flex-col justify-center items-center">
           <h1 className="italic">Thank you!</h1>
-          <h1>♥</h1>
+          <h1 className="">♥</h1>
         </div>
       </div>
     </div>
