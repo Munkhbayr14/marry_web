@@ -5,7 +5,7 @@ import cover_5 from "../manlaiImage/img-3.jpg";
 import cover_8 from "../manlaiImage/img-4.jpg";
 import cover_9 from "../manlaiImage/img-5.jpg";
 import cover_10 from "../manlaiImage/img-7.png";
-import dans from "../manlaiImage/giftLast.png";
+import dans from "../manlaiImage/lastFooter.png";
 import { IoLogoInstagram } from "react-icons/io5";
 
 import { SetStateAction, useEffect, useState } from "react";
@@ -58,7 +58,7 @@ export default function Home() {
               Хуримын урилга
             </p> */}
             <div className="flex font-serif flex-col items-center justify-center p-12 pb-14">
-              ♥<p className="font-serif">2024 оны 6 сарын 15-ны өдөр</p>
+              ♥<p className="font-serif">2024 оны 6-р сарын 15-ны өдөр</p>
               <p>Улаанбаатар зүүн чуулган</p>
               <p> 10:00 цагт</p>
             </div>
