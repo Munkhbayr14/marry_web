@@ -1,7 +1,7 @@
 import b_1 from "../bilguun/b-1.jpg";
 import b_2 from "../bilguun/b-2.jpg";
 import b_3 from "../bilguun/b-3.jpg";
-
+import b_4 from "../bilguun/b-4.jpg";
 import b_5 from "../bilguun/b-5.jpg";
 // import cover_8 from "../manlaiImage/img-4.jpg";
 // import cover_9 from "../manlaiImage/img-5.jpg";
@@ -55,13 +55,12 @@ export default function Home() {
               <p className="text-[14px] ">Таныг бидний хуримын ёслолд </p>{" "}
               <p className="text-[14px]"> хүрэлцэн ирэхийг урьж байна </p>
             </div>
-            ♥
-            <p className="text-[14px] mt-5">
-              Ганцаараа байснаас хоёул байх нь{" "}
+            ♥<p className="text-[14px] mt-5">Энэ бүгдийн дээр хайрыг өмс.</p>
+            <p className="text-[14px]">
+              Хайр нь төгс төгөлдрийн хэлхээ холбоос юм
             </p>
-            <p className="text-[14px]">илүү дээр билээ. Тэгвэл тэдний зүтгэл</p>
             <p className="text-[14px] "> сайнаар хариулагдах болно.</p>
-            <p className="text-[14px] pb-10">Номлогчийн үгс 4:9 </p>
+            <p className="text-[14px] pb-10">Колоссай3:14 </p>
             {/* <p className="text-[14px] ">
               Хүндэтгэсэн: М.Мөнхманлай & Б.Ариунтэс
             </p> */}
@@ -143,10 +142,10 @@ export default function Home() {
           <h1 className="font-serif flex justify-center pt-10 text-[30px] ">
             ♥ Зураг ♥
           </h1>
-          <div className="w-full max-w-7xl p-1 pb-10 mx-auto pt-10 gap-1 space-y-1 columns-2">
+          <div className="w-full max-w-7xl p-1 pb-10 mx-auto pt-10 gap-5 space-y-4 columns-2">
             <img className="rounded-lg" src={b_2} alt="" />
-
             <img className="rounded-lg" src={b_3} alt="" />
+            <img className="rounded-lg" src={b_4} alt="" />
             <img className="rounded-lg" src={b_5} alt="" />
             <img className="rounded-lg" src={b_1} alt="" />
           </div>
