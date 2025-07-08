@@ -1,40 +1,16 @@
 import b_1 from "../bilguun/b-1.jpg";
 import b_2 from "../bilguun/b-2.jpg";
 import b_3 from "../bilguun/b-3.jpg";
-import b_4 from "../bilguun/b-4.jpg";
-import cover_8 from "../manlaiImage/img-4.jpg";
-import cover_9 from "../manlaiImage/img-5.jpg";
-import cover_10 from "../manlaiImage/img-7.png";
-import dans from "../manlaiImage/lastFooter.png";
-import { IoLogoInstagram } from "react-icons/io5";
 
-import { SetStateAction, useEffect, useState } from "react";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
-  useDisclosure,
-} from "@nextui-org/react";
+import b_5 from "../bilguun/b-5.jpg";
+// import cover_8 from "../manlaiImage/img-4.jpg";
+// import cover_9 from "../manlaiImage/img-5.jpg";
+// import b from "../manlaiImage/img-7.png";
+// import dans from "../manlaiImage/lastFooter.png";
+// import { IoLogoInstagram } from "react-icons/io5";
 import React from "react";
 
 export default function Home() {
-  const [slides, setData] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<any>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [size, setSize] = React.useState("5xl");
-  const sizes = ["5xl"];
-
-  const handleOpen = (size: any) => {
-    setSize(size);
-    onOpen();
-  };
-
   return (
     <div>
       <div>
@@ -113,7 +89,7 @@ export default function Home() {
                     90287098{" "}
                   </td>
                 </tr>
-                <tr className=" font-serif border border-solid border-l-0 border-r-0 ">
+                {/* <tr className=" font-serif border border-solid border-l-0 border-r-0 ">
                   <td className="text-md px-6 py-3  ">Аав Алтай</td>
                   <td className="flex justify-end text-md px-6 py-3  ">
                     90929099
@@ -124,7 +100,7 @@ export default function Home() {
                   <td className="flex justify-end text-md px-6 py-3  ">
                     96750107
                   </td>
-                </tr>
+                </tr> */}
               </tbody>
             </table>
 
@@ -143,12 +119,12 @@ export default function Home() {
                     99358265
                   </td>
                 </tr> */}
-                <tr className="border border-solid border-l-0 border-r-0 ">
+                {/* <tr className="border border-solid border-l-0 border-r-0 ">
                   <td className="font-serif text-md px-6 py-3 "> Ээж Наран </td>
                   <td className="font-serif flex justify-end text-md px-6 py-3  ">
                     94351672
                   </td>
-                </tr>
+                </tr> */}
               </tbody>
             </table>
           </div>
@@ -171,11 +147,10 @@ export default function Home() {
             <img className="rounded-lg" src={b_2} alt="" />
 
             <img className="rounded-lg" src={b_3} alt="" />
-            <img className="rounded-lg" src={cover_10} alt="" />
-            <img className="rounded-lg" src={b_4} alt="" />
-            <img className="rounded-lg" src={cover_9} alt="" />
-            <img className="rounded-lg" src={cover_8} alt="" />
+            <img className="rounded-lg" src={b_5} alt="" />
+            <img className="rounded-lg" src={b_1} alt="" />
           </div>
+
           {/* <div className="flex justify-center items-center">
             <a
               href="https://www.instagram.com/pluto_munkhtes/?igsh=MXJkbnFjbnJtNjU4cg%3D%3D&utm_source=qr"
@@ -213,6 +188,7 @@ export default function Home() {
             </button>
           </div>
           <iframe
+            title="Embedded video"
             className="w-screen p-5 h-90"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10695.247020883977!2d106.95975198065267!3d47.920679739523756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d96911c8ad90ded%3A0x154015dc33d0e30a!2z0KPQu9Cw0LDQvdCx0LDQsNGC0LDRgCDQsdCw0L_RgtC40YHRgiDQt9Kv0q_QvSDRh9GD0YPQu9Cz0LDQvQ!5e0!3m2!1sen!2smn!4v1698212444861!5m2!1sen!2smn"
             width="600"
