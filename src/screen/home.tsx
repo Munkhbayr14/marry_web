@@ -6,7 +6,7 @@ import b_5 from "../bilguun/b-5.jpg";
 // import cover_8 from "../manlaiImage/img-4.jpg";
 // import cover_9 from "../manlaiImage/img-5.jpg";
 // import b from "../manlaiImage/img-7.png";
-// import dans from "../manlaiImage/lastFooter.png";
+import dans from "../bilguun/dans.png";
 // import { IoLogoInstagram } from "react-icons/io5";
 import React from "react";
 
@@ -206,9 +206,9 @@ export default function Home() {
             </p>
           </div>
           <hr />
-          {/* <div className="w-full flex flex-col">
+          <div className="w-full flex flex-col">
             <img src={dans} alt="" />
-          </div> */}
+          </div>
         </div>
 
         <div className="bg-[#ffff] h-60 w-screen flex flex-col justify-center items-center">
