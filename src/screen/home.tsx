@@ -1,7 +1,7 @@
-import cover from "../manlaiImage/cover-2.jpg";
-import cover_1 from "../manlaiImage/img-1.jpg";
-import cover_4 from "../manlaiImage/img-2.jpg";
-import cover_5 from "../manlaiImage/img-3.jpg";
+import b_1 from "../bilguun/b-1.jpg";
+import b_2 from "../bilguun/b-2.jpg";
+import b_3 from "../bilguun/b-3.jpg";
+import b_4 from "../bilguun/b-4.jpg";
 import cover_8 from "../manlaiImage/img-4.jpg";
 import cover_9 from "../manlaiImage/img-5.jpg";
 import cover_10 from "../manlaiImage/img-7.png";
@@ -46,19 +46,19 @@ export default function Home() {
           </div>
 
           <div className="md:text-6xl text-4xl h-64 md:h-96 mx-auto flex flex-col items-center justify-center ">
-            <h1 className="text-gray-600 italic font-serif ">Мөнхманлай </h1>{" "}
+            <h1 className="text-gray-600 italic font-serif ">Билгүүн </h1>{" "}
             <p className="text-gray-600 italic font-serif">&</p>
-            <h1 className="text-gray-600 italic  font-serif">Ариунтэс</h1>
+            <h1 className="text-gray-600 italic  font-serif">Уранчимэг</h1>
           </div>
           <div className="w-full">
-            <img className="w-full" src={cover} alt="" />
+            <img className="w-full" src={b_1} alt="" />
           </div>
           <div className="md:text-2xl lg:text-3xl flex flex-col items-center justify-center">
             {/* <p className="pt-12 font-Sans text-pink-100 italic">
               Хуримын урилга
             </p> */}
             <div className="flex font-serif flex-col items-center justify-center p-12 pb-14">
-              ♥<p className="font-serif">2024 оны 6-р сарын 15-ны өдөр</p>
+              ♥<p className="font-serif">2025 оны 8-р сарын 9-ны өдөр</p>
               <p>Улаанбаатар зүүн чуулган</p>
               <p> 10:00 цагт</p>
             </div>
@@ -70,7 +70,7 @@ export default function Home() {
             <p className="italic text-[14px]  text-[#7f838c] font-serif">
               Хуримын урилга
             </p>
-            <p className="text-[#7f838c] text-[14px] italic font-serif">M&A</p>
+            <p className="text-[#7f838c] text-[14px] italic font-serif">Б&У</p>
           </div>
 
           <hr />
@@ -99,7 +99,7 @@ export default function Home() {
             <p className="italic text-[14px]  text-[#7f838c] font-serif">
               Хуримын урилга
             </p>
-            <p className="text-[#7f838c] text-[14px] italic font-serif">M&A</p>
+            <p className="text-[#7f838c] text-[14px] italic font-serif">Б&У</p>
           </div>
 
           <hr />
@@ -108,21 +108,21 @@ export default function Home() {
             <table className="w-full md:w-[1000px]  mt-8 ">
               <tbody className="">
                 <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-                  <td className=" text-md px-6 py-3 ">Мөнхманлай </td>
+                  <td className=" text-md px-6 py-3 ">Билгүүн </td>
                   <td className="flex justify-end text-md px-6 py-3 ">
-                    88567012{" "}
+                    90287098{" "}
                   </td>
                 </tr>
                 <tr className=" font-serif border border-solid border-l-0 border-r-0 ">
-                  <td className="text-md px-6 py-3  ">Аав Мөнхсайхан</td>
+                  <td className="text-md px-6 py-3  ">Аав Алтай</td>
                   <td className="flex justify-end text-md px-6 py-3  ">
-                    88929966
+                    90929099
                   </td>
                 </tr>
                 <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-                  <td className="text-md px-6 py-3 "> Ээж Дэлгэрчимэг </td>
+                  <td className="text-md px-6 py-3 "> Ээж Цэндмаа </td>
                   <td className="flex justify-end text-md px-6 py-3  ">
-                    99022683
+                    96750107
                   </td>
                 </tr>
               </tbody>
@@ -131,22 +131,22 @@ export default function Home() {
             <table className="w-full md:w-[1000px]  mt-8 ">
               <tbody className="">
                 <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-                  <td className=" text-md px-6 py-3 "> Ариунтэс </td>
+                  <td className=" text-md px-6 py-3 "> Уранчимэг </td>
                   <td className=" flex justify-end text-md px-6 py-3 ">
-                    88443927{" "}
+                    95343513{" "}
                   </td>
                 </tr>
-                <tr className="font-serif border border-solid border-l-0 border-r-0 ">
+                {/* <tr className="font-serif border border-solid border-l-0 border-r-0 ">
                   <td className="text-md px-6 py-3  ">Аав Баярболд</td>
                   <td className="flex justify-end text-md px-6 py-3  ">
                     {" "}
                     99358265
                   </td>
-                </tr>
+                </tr> */}
                 <tr className="border border-solid border-l-0 border-r-0 ">
-                  <td className="font-serif text-md px-6 py-3 "> Ээж Орхон </td>
+                  <td className="font-serif text-md px-6 py-3 "> Ээж Наран </td>
                   <td className="font-serif flex justify-end text-md px-6 py-3  ">
-                    99759934
+                    94351672
                   </td>
                 </tr>
               </tbody>
@@ -160,7 +160,7 @@ export default function Home() {
             <p className="italic text-[14px]  text-[#7f838c] font-serif">
               Хуримын урилга
             </p>
-            <p className="text-[#7f838c] text-[14px] italic font-serif">M&A</p>
+            <p className="text-[#7f838c] text-[14px] italic font-serif">Б&У</p>
           </div>
 
           <hr />
@@ -168,15 +168,15 @@ export default function Home() {
             ♥ Зураг ♥
           </h1>
           <div className="w-full max-w-7xl p-1 pb-10 mx-auto pt-10 gap-1 space-y-1 columns-2">
-            <img className="rounded-lg" src={cover_1} alt="" />
+            <img className="rounded-lg" src={b_2} alt="" />
 
-            <img className="rounded-lg" src={cover_4} alt="" />
+            <img className="rounded-lg" src={b_3} alt="" />
             <img className="rounded-lg" src={cover_10} alt="" />
-            <img className="rounded-lg" src={cover_5} alt="" />
+            <img className="rounded-lg" src={b_4} alt="" />
             <img className="rounded-lg" src={cover_9} alt="" />
             <img className="rounded-lg" src={cover_8} alt="" />
           </div>
-          <div className="flex justify-center items-center">
+          {/* <div className="flex justify-center items-center">
             <a
               href="https://www.instagram.com/pluto_munkhtes/?igsh=MXJkbnFjbnJtNjU4cg%3D%3D&utm_source=qr"
               className=" rounded-2xl  bg-[#e7b596] flex justify-center items-center  md:text-[24px]  md:p-3 p-1 pl-7 pr-7 text-white"
@@ -187,14 +187,14 @@ export default function Home() {
 
               <p className="font-serif"> Дэлгэрэнгүй</p>
             </a>
-          </div>
+          </div> */}
         </div>
-        <div className="bg-[#ffffff] pt-3  h-auto w-screen">
-          <div className="flex justify-between ">
+        <div className="bg-[#ffffff] pt-3 h-auto w-screen">
+          <div className="flex justify-between px-5">
             <p className="italic text-[14px]  text-[#7f838c] font-serif">
               Хуримын урилга
             </p>
-            <p className="text-[#7f838c] text-[14px] italic font-serif">M&A</p>
+            <p className="text-[#7f838c] text-[14px] italic font-serif">Б&У</p>
           </div>
           <hr />
           <h1 className="flex font-serif justify-center pt-10 text-[25px]">
@@ -227,13 +227,13 @@ export default function Home() {
               Хуримын урилга
             </p>
             <p className="text-[#7f838c] mx-3 text-[14px] italic font-serif">
-              M&A
+              Б&У
             </p>
           </div>
           <hr />
-          <div className="w-full flex flex-col">
+          {/* <div className="w-full flex flex-col">
             <img src={dans} alt="" />
-          </div>
+          </div> */}
         </div>
 
         <div className="bg-[#ffff] h-60 w-screen flex flex-col justify-center items-center">
