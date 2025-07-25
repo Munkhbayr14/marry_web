@@ -57,9 +57,9 @@ export default function Home() {
             </div>
             ♥<p className="text-[14px] mt-5">Энэ бүгдийн дээр хайрыг өмс.</p>
             <p className="text-[14px]">
-              Хайр нь төгс төгөлдрийн хэлхээ холбоос юм
+              Хайр нь төгс төгөлдрийн хэлхээ холбоос юм.
             </p>
-            <p className="text-[14px] "> сайнаар хариулагдах болно.</p>
+            {/* <p className="text-[14px] "> сайнаар хариулагдах болно.</p> */}
             <p className="text-[14px] pb-10">Колоссай3:14 </p>
             {/* <p className="text-[14px] ">
               Хүндэтгэсэн: М.Мөнхманлай & Б.Ариунтэс
