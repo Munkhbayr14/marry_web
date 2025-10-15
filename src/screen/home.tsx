@@ -1,13 +1,13 @@
-import b_1 from "../bilguun/b-1.jpg";
-import b_2 from "../bilguun/b-2.jpg";
-import b_3 from "../bilguun/b-3.jpg";
-import b_4 from "../bilguun/b-4.jpg";
-import b_5 from "../bilguun/b-5.jpg";
-// import cover_8 from "../manlaiImage/img-4.jpg";
-// import cover_9 from "../manlaiImage/img-5.jpg";
-// import b from "../manlaiImage/img-7.png";
-import dans from "../bilguun/dans.png";
-// import { IoLogoInstagram } from "react-icons/io5";
+import b_1 from "../barsaa/b-1.jpg";
+import b_2 from "../barsaa/b-2.jpg";
+import b_4 from "../barsaa/b-4.jpg";
+import b_5 from "../barsaa/b-5.jpg";
+import b_6 from "../barsaa/b-6.jpg";
+import b_7 from "../barsaa/b-7.jpg";
+import b_8 from "../barsaa/b-8.jpg";
+import b_9 from "../barsaa/b-9.jpg";
+import cover from "../barsaa/cover.jpg";
+import dans from "../barsaa/dans.png";
 import React from "react";
 
 export default function Home() {
@@ -22,19 +22,19 @@ export default function Home() {
           </div>
 
           <div className="md:text-6xl text-4xl h-64 md:h-96 mx-auto flex flex-col items-center justify-center ">
-            <h1 className="text-gray-600 italic font-serif ">Билгүүн </h1>{" "}
+            <h1 className="text-gray-600 italic font-serif ">Барсбаатар </h1>{" "}
             <p className="text-gray-600 italic font-serif">&</p>
-            <h1 className="text-gray-600 italic  font-serif">Уранчимэг</h1>
+            <h1 className="text-gray-600 italic  font-serif">Одончимэг</h1>
           </div>
           <div className="w-full">
-            <img className="w-full" src={b_1} alt="" />
+            <img className="w-full" src={cover} alt="" />
           </div>
           <div className="md:text-2xl lg:text-3xl flex flex-col items-center justify-center">
             {/* <p className="pt-12 font-Sans text-pink-100 italic">
               Хуримын урилга
             </p> */}
             <div className="flex font-serif flex-col items-center justify-center p-12 pb-14">
-              ♥<p className="font-serif">2025 оны 8-р сарын 9-ны өдөр</p>
+              ♥<p className="font-serif">2025 оны 11-р сарын 01-ны өдөр</p>
               <p>Улаанбаатар зүүн чуулган</p>
               <p> 10:00 цагт</p>
             </div>
@@ -46,7 +46,7 @@ export default function Home() {
             <p className="italic text-[14px]  text-[#7f838c] font-serif">
               Хуримын урилга
             </p>
-            <p className="text-[#7f838c] text-[14px] italic font-serif">Б&У</p>
+            <p className="text-[#7f838c] text-[14px] italic font-serif">Б&О</p>
           </div>
 
           <hr />
@@ -55,12 +55,20 @@ export default function Home() {
               <p className="text-[14px] ">Таныг бидний хуримын ёслолд </p>{" "}
               <p className="text-[14px]"> хүрэлцэн ирэхийг урьж байна </p>
             </div>
-            ♥<p className="text-[14px] mt-5">Энэ бүгдийн дээр хайрыг өмс.</p>
-            <p className="text-[14px]">
-              Хайр нь төгс төгөлдрийн хэлхээ холбоос юм.
+            ♥
+            <p className="text-[14px] mt-5">
+              {" "}
+              “Хайр тэвчээртэй энэрэнгүй билээ.
             </p>
-            {/* <p className="text-[14px] "> сайнаар хариулагдах болно.</p> */}
-            <p className="text-[14px] pb-10">Колоссай3:14 </p>
+            <p className="text-[14px] ">
+              {" "}
+              далдалдаг, бүгдэд итгэдэг, бүгдэд найддаг,{" "}
+            </p>
+            <p className="text-[14px]">
+              бүгдийг тэсвэрлэдэг. Хайр хэзээ ч дуусдаггүй.”
+            </p>
+            <p className="text-[14px] "> 1Коринт 13:4-8</p>
+            {/* <p className="text-[14px] pb-10">Колоссай3:14 </p> */}
             {/* <p className="text-[14px] ">
               Хүндэтгэсэн: М.Мөнхманлай & Б.Ариунтэс
             </p> */}
@@ -74,7 +82,7 @@ export default function Home() {
             <p className="italic text-[14px]  text-[#7f838c] font-serif">
               Хуримын урилга
             </p>
-            <p className="text-[#7f838c] text-[14px] italic font-serif">Б&У</p>
+            <p className="text-[#7f838c] text-[14px] italic font-serif">Б&О</p>
           </div>
 
           <hr />
@@ -83,9 +91,9 @@ export default function Home() {
             <table className="w-full md:w-[1000px]  mt-8 ">
               <tbody className="">
                 <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-                  <td className=" text-md px-6 py-3 ">Билгүүн </td>
+                  <td className=" text-md px-6 py-3 ">Барсбаатар </td>
                   <td className="flex justify-end text-md px-6 py-3 ">
-                    90287098{" "}
+                    94004499{" "}
                   </td>
                 </tr>
                 {/* <tr className=" font-serif border border-solid border-l-0 border-r-0 ">
@@ -106,9 +114,9 @@ export default function Home() {
             <table className="w-full md:w-[1000px]  mt-8 ">
               <tbody className="">
                 <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-                  <td className=" text-md px-6 py-3 "> Уранчимэг </td>
+                  <td className=" text-md px-6 py-3 "> Одончимэг </td>
                   <td className=" flex justify-end text-md px-6 py-3 ">
-                    95343513{" "}
+                    89399879{" "}
                   </td>
                 </tr>
                 {/* <tr className="font-serif border border-solid border-l-0 border-r-0 ">
@@ -135,7 +143,7 @@ export default function Home() {
             <p className="italic text-[14px]  text-[#7f838c] font-serif">
               Хуримын урилга
             </p>
-            <p className="text-[#7f838c] text-[14px] italic font-serif">Б&У</p>
+            <p className="text-[#7f838c] text-[14px] italic font-serif">Б&О</p>
           </div>
 
           <hr />
@@ -143,11 +151,14 @@ export default function Home() {
             ♥ Зураг ♥
           </h1>
           <div className="w-full max-w-7xl p-1 pb-10 mx-auto pt-10 gap-5 space-y-4 columns-2">
-            <img className="rounded-lg" src={b_2} alt="" />
-            <img className="rounded-lg" src={b_3} alt="" />
-            <img className="rounded-lg" src={b_4} alt="" />
             <img className="rounded-lg" src={b_5} alt="" />
+            <img className="rounded-lg" src={b_2} alt="" />
+            <img className="rounded-lg" src={b_4} alt="" />
             <img className="rounded-lg" src={b_1} alt="" />
+            <img className="rounded-lg" src={b_6} alt="" />
+            <img className="rounded-lg" src={b_7} alt="" />
+            <img className="rounded-lg" src={b_8} alt="" />
+            <img className="rounded-lg" src={b_9} alt="" />
           </div>
 
           {/* <div className="flex justify-center items-center">
@@ -168,7 +179,7 @@ export default function Home() {
             <p className="italic text-[14px]  text-[#7f838c] font-serif">
               Хуримын урилга
             </p>
-            <p className="text-[#7f838c] text-[14px] italic font-serif">Б&У</p>
+            <p className="text-[#7f838c] text-[14px] italic font-serif">Б&О</p>
           </div>
           <hr />
           <h1 className="flex font-serif justify-center pt-10 text-[25px]">
@@ -202,7 +213,7 @@ export default function Home() {
               Хуримын урилга
             </p>
             <p className="text-[#7f838c] mx-3 text-[14px] italic font-serif">
-              Б&У
+              Б&О
             </p>
           </div>
           <hr />
