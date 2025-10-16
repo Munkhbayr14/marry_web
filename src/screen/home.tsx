@@ -1,12 +1,12 @@
 import b_1 from "../barsaa/b-1.jpg";
 import b_2 from "../barsaa/b-2.jpg";
 import b_4 from "../barsaa/b-4.jpg";
-import b_5 from "../barsaa/b-5.jpg";
-import b_6 from "../barsaa/b-6.jpg";
+// import b_5 from "../barsaa/b-5.jpg";
+// import b_6 from "../barsaa/b-6.jpg";
 import b_7 from "../barsaa/b-7.jpg";
 import b_8 from "../barsaa/b-8.jpg";
 import b_9 from "../barsaa/b-9.jpg";
-import cover from "../barsaa/cover.jpg";
+import covers from "../barsaa/covers.jpg";
 import dans from "../barsaa/dans.png";
 import React from "react";
 
@@ -27,7 +27,7 @@ export default function Home() {
             <h1 className="text-gray-600 italic  font-serif">Одончимэг</h1>
           </div>
           <div className="w-full">
-            <img className="w-full" src={cover} alt="" />
+            <img className="w-full" src={covers} alt="" />
           </div>
           <div className="md:text-2xl lg:text-3xl flex flex-col items-center justify-center">
             {/* <p className="pt-12 font-Sans text-pink-100 italic">
@@ -58,7 +58,7 @@ export default function Home() {
             ♥
             <p className="text-[14px] mt-5">
               {" "}
-              “Хайр тэвчээртэй энэрэнгүй билээ.
+              “Хайр тэвчээртэй энэрэнгүй билээ. Хайр бүгдийг
             </p>
             <p className="text-[14px] ">
               {" "}
@@ -151,11 +151,11 @@ export default function Home() {
             ♥ Зураг ♥
           </h1>
           <div className="w-full max-w-7xl p-1 pb-10 mx-auto pt-10 gap-5 space-y-4 columns-2">
-            <img className="rounded-lg" src={b_5} alt="" />
+            {/* <img className="rounded-lg" src={b_5} alt="" /> */}
             <img className="rounded-lg" src={b_2} alt="" />
             <img className="rounded-lg" src={b_4} alt="" />
             <img className="rounded-lg" src={b_1} alt="" />
-            <img className="rounded-lg" src={b_6} alt="" />
+            {/* <img className="rounded-lg" src={b_6} alt="" /> */}
             <img className="rounded-lg" src={b_7} alt="" />
             <img className="rounded-lg" src={b_8} alt="" />
             <img className="rounded-lg" src={b_9} alt="" />
