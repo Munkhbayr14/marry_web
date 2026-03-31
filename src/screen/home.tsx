@@ -1,231 +1,551 @@
+import React, { useState, useRef, useCallback, useEffect } from "react";
+import {
+  motion,
+  AnimatePresence as FramerAnimatePresence,
+} from "framer-motion";
 import b_1 from "../barsaa/b-1.jpg";
 import b_2 from "../barsaa/b-2.jpg";
 import b_4 from "../barsaa/b-4.jpg";
-// import b_5 from "../barsaa/b-5.jpg";
-// import b_6 from "../barsaa/b-6.jpg";
 import b_7 from "../barsaa/b-7.jpg";
 import b_8 from "../barsaa/b-8.jpg";
 import b_9 from "../barsaa/b-9.jpg";
 import covers from "../barsaa/covers.jpg";
 import dans from "../barsaa/dans.png";
-import React from "react";
+import musicSrc from "../music/Katawaredoki.mp3";
+import leaf from "../other-image/leaf.png";
+import longLeaf from "../other-image/longLeaf.png";
+import boxIcon from "../other-image/boxIcon.png";
+import weddingBanner from "../other-image/weddingBanner.png";
+import weddingPhoto from "../other-image/weddingPhoto.png";
+import SakuraFalling from "./SakuraFalling";
+
+const AnimatePresence = FramerAnimatePresence as React.FC<{
+  children?: React.ReactNode;
+  mode?: "sync" | "wait" | "popLayout";
+  initial?: boolean;
+  onExitComplete?: () => void;
+}>;
+
+const GALLERY_IMAGES = [b_2, b_4, b_1, b_7, b_8, b_9, b_2, b_4, b_1];
 
 export default function Home() {
+  const [showSplash, setShowSplash] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [showGallery, setShowGallery] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // 1. Гар дээр touch swipe зөвшөөрөх (modal дотор)
+  const touchStartX = useRef<number>(0);
+
+  const getFadeInUp = (ref: React.RefObject<HTMLDivElement>) => ({
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-50px", root: ref },
+    transition: { duration: 0.8, ease: "easeOut" },
+  });
+
+  const startExperience = useCallback(() => {
+    setShowSplash(false);
+    setIsPlaying(true);
+    audioRef.current?.play().catch((err) => {
+      console.warn("Audio autoplay blocked:", err);
+      setIsPlaying(false);
+    });
+  }, []);
+
+  const toggleMusic = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isPlaying) {
+      audio.pause();
+      setIsPlaying(false);
+    } else {
+      audio.play().catch((err) => console.warn("Audio play blocked:", err));
+      setIsPlaying(true);
+    }
+  }, [isPlaying]);
+
+  const openGallery = useCallback((index: number) => {
+    setActiveIndex(index);
+    setShowGallery(true);
+  }, []);
+
+  const closeGallery = useCallback(() => setShowGallery(false), []);
+
+  const prevImage = useCallback(
+    () =>
+      setActiveIndex(
+        (i) => (i - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length,
+      ),
+    [],
+  );
+
+  const nextImage = useCallback(
+    () => setActiveIndex((i) => (i + 1) % GALLERY_IMAGES.length),
+    [],
+  );
+
+  // 2. Keyboard navigation (modal)
+  useEffect(() => {
+    if (!showGallery) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prevImage();
+      if (e.key === "ArrowRight") nextImage();
+      if (e.key === "Escape") closeGallery();
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [showGallery, prevImage, nextImage, closeGallery]);
+
+  // 3. Body scroll lock modal нээлттэй үед
+  useEffect(() => {
+    document.body.style.overflow = showGallery ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showGallery]);
+
   return (
-    <div>
-      <div>
-        <div className="border-2my-6 mx-5">
-          <div className="flex justify-center items-center">
-            <p className="italic text-[20px] mt-10  text-[#7f838c] font-serif">
-              Хуримын урилга
-            </p>
-          </div>
+    <div className="h-screen w-full bg-gray-200 flex justify-center items-center overflow-hidden">
+      <div className="relative w-full max-w-[450px] h-full md:h-[92vh] bg-white md:rounded-[2.5rem] md:shadow-2xl overflow-hidden border-x border-gray-100 flex flex-col">
+        {!showSplash && <SakuraFalling />}
 
-          <div className="md:text-6xl text-4xl h-64 md:h-96 mx-auto flex flex-col items-center justify-center ">
-            <h1 className="text-gray-600 italic font-serif ">Барсбаатар </h1>{" "}
-            <p className="text-gray-600 italic font-serif">&</p>
-            <h1 className="text-gray-600 italic  font-serif">Одончимэг</h1>
-          </div>
-          <div className="w-full">
-            <img className="w-full" src={covers} alt="" />
-          </div>
-          <div className="md:text-2xl lg:text-3xl flex flex-col items-center justify-center">
-            {/* <p className="pt-12 font-Sans text-pink-100 italic">
-              Хуримын урилга
-            </p> */}
-            <div className="flex font-serif flex-col items-center justify-center p-12 pb-14">
-              ♥<p className="font-serif">2025 оны 11-р сарын 01-ны өдөр</p>
-              <p>Улаанбаатар зүүн чуулган</p>
-              <p> 10:00 цагт</p>
-            </div>
-          </div>
-        </div>
+        {/* 4. Audio preload="none" — splash дарах хүртэл татахгүй */}
+        <audio ref={audioRef} src={musicSrc} loop preload="none" />
 
-        <div className="bg-[#fcf5eb94] h-auto w-screen p-5">
-          <div className="flex justify-between ">
-            <p className="italic text-[14px]  text-[#7f838c] font-serif">
-              Хуримын урилга
-            </p>
-            <p className="text-[#7f838c] text-[14px] italic font-serif">Б&О</p>
-          </div>
-
-          <hr />
-          <div className="flex font-serif flex-col items-center justify-center mt-16">
-            <div className="my-5">
-              <p className="text-[14px] ">Таныг бидний хуримын ёслолд </p>{" "}
-              <p className="text-[14px]"> хүрэлцэн ирэхийг урьж байна </p>
-            </div>
-            ♥
-            <p className="text-[14px] mt-5">
-              {" "}
-              “Хайр тэвчээртэй энэрэнгүй билээ. Хайр бүгдийг
-            </p>
-            <p className="text-[14px] ">
-              {" "}
-              далдалдаг, бүгдэд итгэдэг, бүгдэд найддаг,{" "}
-            </p>
-            <p className="text-[14px]">
-              бүгдийг тэсвэрлэдэг. Хайр хэзээ ч дуусдаггүй.”
-            </p>
-            <p className="text-[14px] "> 1Коринт 13:4-8</p>
-            {/* <p className="text-[14px] pb-10">Колоссай3:14 </p> */}
-            {/* <p className="text-[14px] ">
-              Хүндэтгэсэн: М.Мөнхманлай & Б.Ариунтэс
-            </p> */}
-          </div>
-
-          <div className="grid grid-cols-3 gap-1 mt-10 mb-10"></div>
-        </div>
-
-        <div className="bg-[#ffffff] h-auto w-screen p-5">
-          <div className="flex justify-between ">
-            <p className="italic text-[14px]  text-[#7f838c] font-serif">
-              Хуримын урилга
-            </p>
-            <p className="text-[#7f838c] text-[14px] italic font-serif">Б&О</p>
-          </div>
-
-          <hr />
-          <div className=" mt-8 flex flex-col items-center justify-center">
-            <h1 className="font-serif text-[25px]">Холбоо барих</h1>
-            <table className="w-full md:w-[1000px]  mt-8 ">
-              <tbody className="">
-                <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-                  <td className=" text-md px-6 py-3 ">Барсбаатар </td>
-                  <td className="flex justify-end text-md px-6 py-3 ">
-                    94004499{" "}
-                  </td>
-                </tr>
-                {/* <tr className=" font-serif border border-solid border-l-0 border-r-0 ">
-                  <td className="text-md px-6 py-3  ">Аав Алтай</td>
-                  <td className="flex justify-end text-md px-6 py-3  ">
-                    90929099
-                  </td>
-                </tr>
-                <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-                  <td className="text-md px-6 py-3 "> Ээж Цэндмаа </td>
-                  <td className="flex justify-end text-md px-6 py-3  ">
-                    96750107
-                  </td>
-                </tr> */}
-              </tbody>
-            </table>
-
-            <table className="w-full md:w-[1000px]  mt-8 ">
-              <tbody className="">
-                <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-                  <td className=" text-md px-6 py-3 "> Одончимэг </td>
-                  <td className=" flex justify-end text-md px-6 py-3 ">
-                    89399879{" "}
-                  </td>
-                </tr>
-                {/* <tr className="font-serif border border-solid border-l-0 border-r-0 ">
-                  <td className="text-md px-6 py-3  ">Аав Баярболд</td>
-                  <td className="flex justify-end text-md px-6 py-3  ">
-                    {" "}
-                    99358265
-                  </td>
-                </tr> */}
-                {/* <tr className="border border-solid border-l-0 border-r-0 ">
-                  <td className="font-serif text-md px-6 py-3 "> Ээж Наран </td>
-                  <td className="font-serif flex justify-end text-md px-6 py-3  ">
-                    94351672
-                  </td>
-                </tr> */}
-              </tbody>
-            </table>
-          </div>
-          <div className="grid grid-cols-3 gap-1 mt-10 mb-10"></div>
-        </div>
-
-        <div className="bg-[#fcf5eb94] h-auto w-screen p-5">
-          <div className="flex justify-between ">
-            <p className="italic text-[14px]  text-[#7f838c] font-serif">
-              Хуримын урилга
-            </p>
-            <p className="text-[#7f838c] text-[14px] italic font-serif">Б&О</p>
-          </div>
-
-          <hr />
-          <h1 className="font-serif flex justify-center pt-10 text-[30px] ">
-            ♥ Зураг ♥
-          </h1>
-          <div className="w-full max-w-7xl p-1 pb-10 mx-auto pt-10 gap-5 space-y-4 columns-2">
-            {/* <img className="rounded-lg" src={b_5} alt="" /> */}
-            <img className="rounded-lg" src={b_2} alt="" />
-            <img className="rounded-lg" src={b_4} alt="" />
-            <img className="rounded-lg" src={b_1} alt="" />
-            {/* <img className="rounded-lg" src={b_6} alt="" /> */}
-            <img className="rounded-lg" src={b_7} alt="" />
-            <img className="rounded-lg" src={b_8} alt="" />
-            <img className="rounded-lg" src={b_9} alt="" />
-          </div>
-
-          {/* <div className="flex justify-center items-center">
-            <a
-              href="https://www.instagram.com/pluto_munkhtes/?igsh=MXJkbnFjbnJtNjU4cg%3D%3D&utm_source=qr"
-              className=" rounded-2xl  bg-[#e7b596] flex justify-center items-center  md:text-[24px]  md:p-3 p-1 pl-7 pr-7 text-white"
+        {/* ── Modal Lightbox ── */}
+        <AnimatePresence>
+          {showGallery && (
+            <motion.div
+              key="modal"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="absolute inset-0 z-50 bg-black/90 flex flex-col items-center justify-center"
+              onClick={closeGallery}
+              // 5. Touch swipe дэмжлэг
+              onTouchStart={(e) => {
+                touchStartX.current = e.touches[0].clientX;
+              }}
+              onTouchEnd={(e) => {
+                const diff = touchStartX.current - e.changedTouches[0].clientX;
+                if (diff > 50) nextImage();
+                if (diff < -50) prevImage();
+              }}
             >
-              <p>
-                <IoLogoInstagram className="font-bold text-[26px] mr-1" />
+              <button
+                className="absolute top-5 right-5 text-white text-3xl leading-none z-10"
+                onClick={closeGallery}
+                aria-label="Хаах"
+              >
+                ×
+              </button>
+
+              <p className="absolute top-6 left-0 right-0 text-center text-white/50 text-sm">
+                {activeIndex + 1} / {GALLERY_IMAGES.length}
               </p>
 
-              <p className="font-serif"> Дэлгэрэнгүй</p>
-            </a>
-          </div> */}
-        </div>
-        <div className="bg-[#ffffff] pt-3 h-auto w-screen">
-          <div className="flex justify-between px-5">
-            <p className="italic text-[14px]  text-[#7f838c] font-serif">
-              Хуримын урилга
-            </p>
-            <p className="text-[#7f838c] text-[14px] italic font-serif">Б&О</p>
-          </div>
-          <hr />
-          <h1 className="flex font-serif justify-center pt-10 text-[25px]">
-            Байршил
-          </h1>
-          <h1 className="flex font-serif  justify-center pt-10 text-[15px]">
-            <u>♥Улаанбаатар зүүн чуулган♥ </u>
-          </h1>
+              <motion.img
+                key={activeIndex}
+                src={GALLERY_IMAGES[activeIndex]}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+                className="max-h-[75vh] max-w-[90%] rounded-xl object-contain shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+                alt={`Зураг ${activeIndex + 1}`}
+                // 6. Modal дахь зураг eager — тэр үед харагдаж байгаа тул
+                loading="eager"
+              />
 
-          <h1 className="font-serif flex justify-center pb-4  text-[15px]">
-            БЗД 22-р хороо өлгийн 3-37 тоот
-          </h1>
-          <div className="flex justify-center">
-            <button className=" rounded-2xl  bg-[#e7b596]  p-1 pl-7 pr-7 text-white">
-              ♥
-            </button>
+              <div
+                className="absolute inset-y-0 left-0 w-1/4 flex items-center justify-start pl-3"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prevImage();
+                }}
+              >
+                <button className="text-white/70 text-5xl leading-none active:scale-90 transition-transform">
+                  ‹
+                </button>
+              </div>
+
+              <div
+                className="absolute inset-y-0 right-0 w-1/4 flex items-center justify-end pr-3"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  nextImage();
+                }}
+              >
+                <button className="text-white/70 text-5xl leading-none active:scale-90 transition-transform">
+                  ›
+                </button>
+              </div>
+
+              <div className="absolute bottom-8 flex gap-2">
+                {GALLERY_IMAGES.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveIndex(i);
+                    }}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      i === activeIndex
+                        ? "bg-[#e7b596] scale-125"
+                        : "bg-white/40"
+                    }`}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* ── Splash ── */}
+        <AnimatePresence>
+          {showSplash && (
+            <motion.div
+              key="splash"
+              initial={{ opacity: 1 }}
+              exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
+              transition={{ duration: 0.6 }}
+              className="absolute inset-0 z-40 flex flex-col items-center justify-center bg-[#fcf5eb] px-10 text-center"
+            >
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                className="italic font-serif text-[#7f838c] mb-2"
+              >
+                Wedding Invitation
+              </motion.p>
+              <motion.h1
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+                className="text-3xl font-serif text-gray-700 mb-8"
+              >
+                Барсбаатар & Одончимэг
+              </motion.h1>
+              <motion.button
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                onClick={startExperience}
+                className="px-10 py-3 bg-[#e7b596] text-white rounded-full font-serif shadow-lg active:scale-95 transition-transform"
+              >
+                Урилга нээх ♥
+              </motion.button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* ── Main scroll content ── */}
+        <div
+          ref={scrollRef}
+          className="flex-1 overflow-y-auto no-scrollbar scroll-smooth"
+        >
+          {/* 7. Cover зураг — eager (эхний харагдах зураг) */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={showSplash ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 1 }}
+          >
+            <img
+              className="w-full h-auto object-cover"
+              src={covers}
+              alt="cover"
+              loading="eager"
+              decoding="async"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={showSplash ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 1 }}
+            className="px-5 pt-16 text-center font-elegant font-thin"
+          >
+            <p className="italic text-[15px]">2026оны 03сарын 28өдөр 11:30</p>
+            <div className="py-10 flex items-end justify-center">
+              <div>
+                <p className="flex text-[15px] justify-end text-gray-400">
+                  Сүйт залуу
+                </p>
+                <h1 className="text-3xl text-gray-600">Мөнхбаяр</h1>
+              </div>
+              <span className="text-2xl text-[#f1a993] mx-1">♥</span>
+              <div>
+                <p className="flex text-[15px] justify-start text-gray-400">
+                  Сүйт бүсгүй
+                </p>
+                <h1 className="text-3xl text-gray-600">Үүрийнтуяа</h1>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={showSplash ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 1 }}
+            className="text-center text-gray-600 bg-white"
+          >
+            <div className="flex justify-center">
+              {/* 8. Жижиг icon зурагнуудад lazy */}
+              <img
+                className="w-12"
+                src={leaf}
+                alt="leaf"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={showSplash ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 1 }}
+            className="mt-10 text-gray-600 bg-white"
+          >
+            <img
+              className="w-full h-auto"
+              src={weddingBanner}
+              alt="wedding banner"
+              loading="lazy"
+              decoding="async"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={showSplash ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 1 }}
+            className="mt-14 font-serif text-gray-600 bg-white"
+          >
+            <div className="flex justify-center">
+              <img
+                className="w-6"
+                src={boxIcon}
+                alt="box icon"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={showSplash ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 1 }}
+            className="mt-10 font-elegant font-thin text-gray-600 bg-white px-6"
+          >
+            <p className="text-center leading-relaxed">
+              Итгэлээр түшиглэн, хайраар холбогдсон бид хоёрын
+              <br /> амьдралын хамгийн нандин энэ мөчид <br /> эрхэм таныг
+              хүндэтгэлтэйгээр урьж байна.
+              <br /> Бид бие биеэ энэрэн хайрлаж, талархан нандигнаж,
+              <br /> аз жаргалаар дүүрэн амьдралыг хамтдаа бүтээнэ.
+              <br /> Таны үнэт оролцоо, халуун ерөөл бидний ирээдүйг гэрэлтүүлэн
+              <br /> адислах тул энэ баярт мөчийг бидэнтэй хамт хуваалцана
+              <br /> гэдэгт чин сэтгэлээсээ баярлах болно.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={showSplash ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 1 }}
+            className="my-14 font-serif text-gray-600 bg-white"
+          >
+            <div className="flex justify-center">
+              <img
+                className="w-14"
+                src={longLeaf}
+                alt="leaf"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={showSplash ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 1 }}
+          >
+            <img
+              className="w-full h-auto object-cover"
+              src={covers}
+              alt="cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={showSplash ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 1 }}
+            className="text-center p-12 font-elegant font-thin text-gray-600 bg-white"
+          >
+            <p className="text-xl text-[#f1c3b4] mb-4">♥</p>
+            <p>2025 оны 11-р сарын 01</p>
+            <p>Улаанбаатар зүүн чуулган</p>
+            <p>10:00 цагт</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={showSplash ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 1 }}
+            className="my-8 font-serif text-gray-600 bg-white"
+          >
+            <div className="flex justify-center">
+              <img
+                className="w-24"
+                src={weddingPhoto}
+                alt="wedding photo"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </motion.div>
+
+          <motion.div
+            {...getFadeInUp(scrollRef)}
+            className="bg-[#fcf5eb] p-10 text-center text-gray-500 italic"
+          >
+            <p className="text-sm font-serif leading-relaxed">
+              "Хайр тэвчээртэй энэрэнгүй билээ... Хайр хэзээ ч дуусдаггүй."
+            </p>
+            <p className="mt-4 font-bold not-italic text-[10px] tracking-widest text-gray-400">
+              1 КОРИНТ 13:4-8
+            </p>
+          </motion.div>
+
+          {/* ── Gallery 3×3 ── */}
+          <h2 className="font-serif text-center py-8 text-2xl text-gray-700">
+            ♥ Зураг ♥
+          </h2>
+
+          <div className="grid grid-cols-3 gap-1">
+            {GALLERY_IMAGES.map((img, index) => (
+              <motion.button
+                key={index}
+                onClick={() => openGallery(index)}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, root: scrollRef }}
+                transition={{
+                  delay: Math.min(index * 0.05, 0.3),
+                  duration: 0.4,
+                }}
+                className="relative aspect-square overflow-hidden active:scale-95 transition-transform"
+              >
+                {/* 9. Gallery зурагнуудад lazy — scroll хүрэхэд л татна */}
+                <img
+                  src={img}
+                  alt={`Хосын зураг ${index + 1}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </motion.button>
+            ))}
           </div>
-          <iframe
-            title="Embedded video"
-            className="w-screen p-5 h-90"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10695.247020883977!2d106.95975198065267!3d47.920679739523756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d96911c8ad90ded%3A0x154015dc33d0e30a!2z0KPQu9Cw0LDQvdCx0LDQsNGC0LDRgCDQsdCw0L_RgtC40YHRgiDQt9Kv0q_QvSDRh9GD0YPQu9Cz0LDQvQ!5e0!3m2!1sen!2smn!4v1698212444861!5m2!1sen!2smn"
-            width="600"
-            height="450"
-            loading="lazy"
-          ></iframe>
+
+          <motion.button
+            whileTap={{ scale: 0.96 }}
+            onClick={() => openGallery(0)}
+            className="mt-6 mx-4 w-[calc(100%-2rem)] py-3 border border-[#e7b596] text-[#e7b596] rounded-full font-serif text-sm tracking-wider hover:bg-[#e7b596] hover:text-white transition-colors"
+          >
+            Бүх зургийг үзэх ♥
+          </motion.button>
+
+          <motion.div
+            {...getFadeInUp(scrollRef)}
+            className="mx-6 p-8 bg-white border border-gray-100 rounded-2xl shadow-sm mb-6 mt-6"
+          >
+            <h2 className="text-center font-serif text-xl mb-6 text-gray-700">
+              Холбоо барих
+            </h2>
+            <div className="space-y-4 font-serif">
+              <div className="flex justify-between border-b pb-2">
+                <span className="text-gray-400">Барсбаатар</span>
+                <a
+                  href="tel:94004499"
+                  className="text-[#e7b596] font-bold"
+                  aria-label="Барсбаатарт залгах"
+                >
+                  94004499
+                </a>
+              </div>
+              <div className="flex justify-between border-b pb-2">
+                <span className="text-gray-400">Одончимэг</span>
+                <a
+                  href="tel:89399879"
+                  className="text-[#e7b596] font-bold"
+                  aria-label="Одончимэгт залгах"
+                >
+                  89399879
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            {...getFadeInUp(scrollRef)}
+            className="px-5 mb-10 text-center"
+          >
+            <h2 className="font-serif mb-4 text-gray-500">Бэлэг дурсгал</h2>
+            <img
+              src={dans}
+              alt="Данс мэдээлэл"
+              className="w-full rounded-2xl shadow-md"
+              loading="lazy"
+              decoding="async"
+            />
+          </motion.div>
+
+          <div className="h-48 flex flex-col justify-center items-center text-gray-400 italic">
+            <p>Thank you!</p>
+            <p className="mt-2 text-red-200 text-xl">♥</p>
+          </div>
         </div>
 
-        <div className="bg-[#ffffff] p-3  h-auto w-screen">
-          <div className="flex justify-between  ">
-            <p className="italic text-[14px] mx-3 text-[#7f838c] font-serif">
-              Хуримын урилга
-            </p>
-            <p className="text-[#7f838c] mx-3 text-[14px] italic font-serif">
-              Б&О
-            </p>
-          </div>
-          <hr />
-          <div className="w-full flex flex-col">
-            <img src={dans} alt="" />
-          </div>
-        </div>
-
-        <div className="bg-[#ffff] h-60 w-screen flex flex-col justify-center items-center">
-          <h1 className="italic">Thank you!</h1>
-          <h1 className="">♥</h1>
-        </div>
+        {/* ── Music button ── */}
+        <AnimatePresence>
+          {!showSplash && (
+            <motion.button
+              key="music-btn"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={toggleMusic}
+              aria-label={isPlaying ? "Дуу зогсоох" : "Дуу тоглуулах"}
+              className="absolute bottom-10 right-6 z-40 w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-[#e7b596] flex items-center justify-center transition-all active:scale-90"
+            >
+              {isPlaying ? (
+                <div className="flex gap-1 items-end h-4">
+                  <div className="w-1 bg-[#e7b596] animate-music-bar" />
+                  <div className="w-1 bg-[#e7b596] animate-music-bar [animation-delay:0.2s]" />
+                  <div className="w-1 bg-[#e7b596] animate-music-bar [animation-delay:0.4s]" />
+                </div>
+              ) : (
+                <span className="text-[10px] font-bold text-gray-400 uppercase">
+                  Off
+                </span>
+              )}
+            </motion.button>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
