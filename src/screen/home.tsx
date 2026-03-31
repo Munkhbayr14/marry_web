@@ -157,7 +157,7 @@ export default function Home() {
                 transition={{ duration: 0.2 }}
                 className="max-h-[75vh] max-w-[90%] rounded-xl object-contain shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
-                alt={`Зураг ${activeIndex + 1}`}
+                alt={` active ${activeIndex + 1}`}
                 // 6. Modal дахь зураг eager — тэр үед харагдаж байгаа тул
                 loading="eager"
               />
@@ -410,7 +410,6 @@ export default function Home() {
               <img
                 className="w-24"
                 src={weddingPhoto}
-                alt="wedding photo"
                 loading="lazy"
                 decoding="async"
               />
@@ -451,7 +450,7 @@ export default function Home() {
                 {/* 9. Gallery зурагнуудад lazy — scroll хүрэхэд л татна */}
                 <img
                   src={img}
-                  alt={`Хосын зураг ${index + 1}`}
+                  alt={`active ${index + 1}`}
                   className="w-full h-full object-cover"
                   loading="lazy"
                   decoding="async"
@@ -506,7 +505,7 @@ export default function Home() {
             <h2 className="font-serif mb-4 text-gray-500">Бэлэг дурсгал</h2>
             <img
               src={dans}
-              alt="Данс мэдээлэл"
+              alt="dans"
               className="w-full rounded-2xl shadow-md"
               loading="lazy"
               decoding="async"

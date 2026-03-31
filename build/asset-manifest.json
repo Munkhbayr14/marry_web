@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/static/css/main.962dbb8a.css",
-    "main.js": "/static/js/main.0a961f87.js",
+    "main.js": "/static/js/main.1c8d9b57.js",
     "static/js/787.38f37db2.chunk.js": "/static/js/787.38f37db2.chunk.js",
-    "static/media/b-7.jpg": "/static/media/b-7.da24661009ef10a15ac4.jpg",
-    "static/media/b-9.jpg": "/static/media/b-9.00b3f55b4f3c0ed35be9.jpg",
-    "static/media/b-2.jpg": "/static/media/b-2.42bc36442f394afae24e.jpg",
-    "static/media/b-8.jpg": "/static/media/b-8.06802c5eafcb227300f5.jpg",
-    "static/media/covers.jpg": "/static/media/covers.e90be5b688514038f49c.jpg",
-    "static/media/b-1.jpg": "/static/media/b-1.fc3895a20ed5764a2901.jpg",
-    "static/media/b-4.jpg": "/static/media/b-4.afa62960131717484594.jpg",
+    "static/media/b-9.jpg": "/static/media/b-9.5a1278dd4fd9ae61850a.jpg",
     "static/media/Katawaredoki.mp3": "/static/media/Katawaredoki.3e960eee95375b8de161.mp3",
+    "static/media/b-7.jpg": "/static/media/b-7.ea801a6d59c3c3d333b5.jpg",
+    "static/media/b-8.jpg": "/static/media/b-8.3aa912319c14ded0e221.jpg",
+    "static/media/b-2.jpg": "/static/media/b-2.749655f1f2dbc1715643.jpg",
+    "static/media/covers.jpg": "/static/media/covers.3bcd42b9d43372098316.jpg",
+    "static/media/b-4.jpg": "/static/media/b-4.793d378ab0be2f50821d.jpg",
+    "static/media/b-1.jpg": "/static/media/b-1.e0dcc8d5f26996e44a3c.jpg",
     "static/media/weddingBanner.png": "/static/media/weddingBanner.c365f86546509894bb53.png",
     "static/media/dans.png": "/static/media/dans.611b8a8ba7c6c22d6608.png",
     "index.html": "/index.html",
     "main.962dbb8a.css.map": "/static/css/main.962dbb8a.css.map",
-    "main.0a961f87.js.map": "/static/js/main.0a961f87.js.map",
+    "main.1c8d9b57.js.map": "/static/js/main.1c8d9b57.js.map",
     "787.38f37db2.chunk.js.map": "/static/js/787.38f37db2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.962dbb8a.css",
-    "static/js/main.0a961f87.js"
+    "static/js/main.1c8d9b57.js"
   ]
 }
