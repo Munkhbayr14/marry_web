@@ -36,7 +36,6 @@ export default function Home() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // 1. Гар дээр touch swipe зөвшөөрөх (modal дотор)
   const touchStartX = useRef<number>(0);
 
   const getFadeInUp = (ref: React.RefObject<HTMLDivElement>) => ({
@@ -87,7 +86,6 @@ export default function Home() {
     [],
   );
 
-  // 2. Keyboard navigation (modal)
   useEffect(() => {
     if (!showGallery) return;
     const handler = (e: KeyboardEvent) => {
@@ -99,7 +97,6 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handler);
   }, [showGallery, prevImage, nextImage, closeGallery]);
 
-  // 3. Body scroll lock modal нээлттэй үед
   useEffect(() => {
     document.body.style.overflow = showGallery ? "hidden" : "";
     return () => {
@@ -112,7 +109,6 @@ export default function Home() {
       <div className="relative w-full max-w-[450px] h-full md:h-[92vh] bg-white md:rounded-[2.5rem] md:shadow-2xl overflow-hidden border-x border-gray-100 flex flex-col">
         {!showSplash && <SakuraFalling />}
 
-        {/* 4. Audio preload="none" — splash дарах хүртэл татахгүй */}
         <audio ref={audioRef} src={musicSrc} loop preload="none" />
 
         {/* ── Modal Lightbox ── */}
@@ -126,7 +122,6 @@ export default function Home() {
               transition={{ duration: 0.25 }}
               className="absolute inset-0 z-50 bg-black/90 flex flex-col items-center justify-center"
               onClick={closeGallery}
-              // 5. Touch swipe дэмжлэг
               onTouchStart={(e) => {
                 touchStartX.current = e.touches[0].clientX;
               }}
@@ -158,7 +153,6 @@ export default function Home() {
                 className="max-h-[75vh] max-w-[90%] rounded-xl object-contain shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
                 alt={"Wedding ceremony"}
-                // 6. Modal дахь зураг eager — тэр үед харагдаж байгаа тул
                 loading="eager"
               />
 
@@ -206,7 +200,6 @@ export default function Home() {
           )}
         </AnimatePresence>
 
-        {/* ── Splash ── */}
         <AnimatePresence>
           {showSplash && (
             <motion.div
@@ -245,12 +238,10 @@ export default function Home() {
           )}
         </AnimatePresence>
 
-        {/* ── Main scroll content ── */}
         <div
           ref={scrollRef}
           className="flex-1 overflow-y-auto no-scrollbar scroll-smooth"
         >
-          {/* 7. Cover зураг — eager (эхний харагдах зураг) */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={showSplash ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }}
@@ -277,14 +268,14 @@ export default function Home() {
                 <p className="flex text-[15px] justify-end text-gray-400">
                   Сүйт залуу
                 </p>
-                <h1 className="text-3xl text-gray-600">Мөнхбаяр</h1>
+                <h1 className="text-3xl text-gray-600">Барсбаатар</h1>
               </div>
               <span className="text-2xl text-[#f1a993] mx-1">♥</span>
               <div>
                 <p className="flex text-[15px] justify-start text-gray-400">
                   Сүйт бүсгүй
                 </p>
-                <h1 className="text-3xl text-gray-600">Үүрийнтуяа</h1>
+                <h1 className="text-3xl text-gray-600">Одончимэг</h1>
               </div>
             </div>
           </motion.div>
@@ -296,7 +287,6 @@ export default function Home() {
             className="text-center text-gray-600 bg-white"
           >
             <div className="flex justify-center">
-              {/* 8. Жижиг icon зурагнуудад lazy */}
               <img
                 className="w-12"
                 src={leaf}
